@@ -4,19 +4,19 @@ class TodoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            task: ''
+            item: ''
         };
     }
 
     handleChanges = e => {
         this.setState({
-            [e.target.task]: e.target.value
+            [e.target.name]: e.target.value
         });
     };
 
     submitTask = e => {
         e.preventDefault();
-        this.props.addTask(this.state.task);
+        this.props.addTask(this.state.item);
     };
 
     render() {
@@ -24,8 +24,9 @@ class TodoForm extends React.Component {
             <form onSubmit={this.submitTask}>
                 <input
                     type="text"
-                    value={this.task}
-                    name="task"
+                    placeholder="Create New Task"
+                    value={this.item}
+                    name="item"
                     onChange={this.handleChanges}
                 />
                 <button>Add Task</button>
